@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>구구단 출력기</title>
+    <style>
+        .Xx {
+            margin-left: 60px;
+            margin-right: 630px;
+            margin-top: 100px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .mybtn {
+            display: flex;
+            flex-direction: column;
+            width: 40px;
+        }
+
+        .mybtn1 {
+            display: flex;
+            flex-direction: column;
+            width: 40px;
+            margin-left: 50px;
+        }
+
+        .mybtn button,
+        .mybtn1 button {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        var leftValue = null;
+        var rightValue = null;
+
+        function updateValue(position, button) {
+            if (position === 'left') {
+                leftValue = parseInt(button.value);
+            } else if (position === 'right') {
+                rightValue = parseInt(button.value);
+            }
+        }
+
+        function showResult() {
+            if (leftValue !== null && rightValue !== null) {
+                var result = leftValue * rightValue;
+                var resultElement = document.getElementById('multiplicationResult');
+                resultElement.textContent = result;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>구구단 출력기</h1>
+    <div class="Xx">x</div>
+
+    <div class="button-container">
+        <div class="mybtn">
+            <button onclick="updateValue('left', this)" type="button" value="1" class="btn btn-primary">1</button>
+            <button onclick="updateValue('left', this)" type="button" value="2" class="btn btn-primary">2</button>
+            <button onclick="updateValue('left', this)" type="button" value="3" class="btn btn-primary">3</button>
+            <button onclick="updateValue('left', this)" type="button" value="4" class="btn btn-primary">4</button>
+            <button onclick="updateValue('left', this)" type="button" value="5" class="btn btn-primary">5</button>
+            <button onclick="updateValue('left', this)" type="button" value="6" class="btn btn-primary">6</button>
+            <button onclick="updateValue('left', this)" type="button" value="7" class="btn btn-primary">7</button>
+            <button onclick="updateValue('left', this)" type="button" value="8" class="btn btn-primary">8</button>
+            <button onclick="updateValue('left', this)" type="button" value="9" class="btn btn-primary">9</button>
+
+        </div>
+
+        <div class="mybtn1">
+            <button onclick="updateValue('right', this)" type="button" value="1" class="btn btn-primary">1</button>
+            <button onclick="updateValue('right', this)" type="button" value="2" class="btn btn-primary">2</button>
+            <button onclick="updateValue('right', this)" type="button" value="3" class="btn btn-primary">3</button>
+            <button onclick="updateValue('right', this)" type="button" value="4" class="btn btn-primary">4</button>
+            <button onclick="updateValue('right', this)" type="button" value="5" class="btn btn-primary">5</button>
+            <button onclick="updateValue('right', this)" type="button" value="6" class="btn btn-primary">6</button>
+            <button onclick="updateValue('right', this)" type="button" value="7" class="btn btn-primary">7</button>
+            <button onclick="updateValue('right', this)" type="button" value="8" class="btn btn-primary">8</button>
+            <button onclick="updateValue('right', this)" type="button" value="9" class="btn btn-primary">9</button>
+
+        </div>
+    </div>
+
+    <div class="result">
+        <button onclick="showResult()" type="button" class="btn btn-primary" id="rst">=</button>
+    </div>
+
+    <div id="multiplicationResult"></div> <!-- 결과를 표시할 요소 -->
+
+</body>
+
+</html>
